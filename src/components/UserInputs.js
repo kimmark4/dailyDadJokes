@@ -4,6 +4,8 @@ import { useState } from "react";
 const UserInputs = () => {
 
     const [userChoice, setUserChoice] = useState("placeholder");
+    const [getRandomJoke, setRandomJoke] = useState("");
+    const [randomButton, setRandomButton] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,7 +16,10 @@ const UserInputs = () => {
         setUserChoice(e.target.value);
     }
 
+    const handleButtonClick = (e) => {
+        setRandomButton(true);
 
+    }
 
     return (
         <>
