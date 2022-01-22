@@ -13,7 +13,7 @@ function App() {
       <Header />
       <ApiCall />
       <UserInputs />
-      <Results />
+      {/* <Results /> */}
     </div>
   );
 }
