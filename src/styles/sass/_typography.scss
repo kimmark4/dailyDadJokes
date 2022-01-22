@@ -1,0 +1,14 @@
+$headerFont: 'Monoton', cursive;
+$baseFont: 'Dorsa', sans-serif;
+
+
+html {
+     font-size: 125%;
+}
+
+h1 {
+     font-family: $headerFont;
+     text-transform: uppercase;
+     text-align: center;
+}
+

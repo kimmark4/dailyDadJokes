@@ -1,10 +1,12 @@
+import './styles/sass/index.scss';
+import Header from './components/Header.js';
 
 
 
 function App() {
   return (
-    <div>
-      
+    <div className="dadJokeApp">
+      <Header />
     </div>
   );
 }
