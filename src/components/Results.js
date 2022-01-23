@@ -17,7 +17,6 @@ const Results = ({ photos, jokes }) => {
           )
         })
       }
-      <h1>heloooooo</h1>
       {
         jokes.map((singularJoke) => {
           return (

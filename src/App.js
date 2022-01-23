@@ -1,4 +1,4 @@
-// import './styles/sass/index.scss';
+import './styles/sass/index.scss';
 import Header from './components/Header.js';
 
 // import Results from './components/Results.js'

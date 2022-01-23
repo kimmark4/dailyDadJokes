@@ -6,8 +6,16 @@ h1 {
   font-family: "Monoton", cursive;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: 2px 2px 1px #f0a848;
+}
+
+p {
+  font-family: "Dorsa", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
 }
 
 body {
   text-align: center;
+  background-color: #a8f0f0;
 }
