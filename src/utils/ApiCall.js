@@ -1,15 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Fragment } from 'react/cjs/react.production.min';
+// import { Fragment } from 'react/cjs/react.production.min';
 
 
 
 const ApiCall = () => {
-const [randoJk, setRandojk] = useState("");
+// const [randoJk, setRandojk] = useState("");
 const randomNumber = Math.floor(Math.random() * 100);
-     
+
 // / performing the network request
-     const [apiData, setApiData] = useState("");
+// const [apiData, setApiData] = useState('');
+const [apiError, setApiError] = useState(false); 
 
 
 useEffect( () => {
@@ -26,27 +27,30 @@ useEffect( () => {
                     total_jokes: 100
                }
           }).then((response) => {
-          console.log(response.data.results);
-               setApiData(response.data.results);
+               // setApiData(response.data.results);
+               const dataResults = (response.data.results);
+               console.log(dataResults);
 
+          }).catch((apiError) => {
+               setApiError(true)
           })
 }, [])
 
 
-// return(
-//      // setDadJoke(response.data.joke)
-//      // console.log(response.data.joke)
-//      // <>
-//      //      {apiData.map((item, value) => {
-//      //           // return(
-//      //           // // <div>
-//      //           // // <p>{apiData}</p>
-//      //           // // </div>
-//      //           // )
-//      //      }  )} 
-//      // </>
+return(
+     // setDadJoke(response.data.joke)
+     console.log(dataResults)
+     // <>
+     //      {apiData.map((item, value) => {
+     //           // return(
+     //           // // <div>
+     //           // // <p>{apiData}</p>
+     //           // // </div>
+     //           // )
+     //      }  )} 
+     // </>
 
 
-//      )
+     )
 }
 export default ApiCall;

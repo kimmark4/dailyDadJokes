@@ -7,7 +7,7 @@ const Results = ({photos}) => {
     console.log(photos);
       return(  
         <>
-     {     
+      {     
         photos.map( (photo) => {
           return(
             <div key={photo.id}>

@@ -20,6 +20,7 @@ const UserInputs = () => {
         setUserChoice(e.target.value);
     
     }
+    // Code was angry added 'Button' to variable name.
     const handleSubmitButton = (e) => {
         e.preventDefault();
         setSearchTerm(userChoice);
