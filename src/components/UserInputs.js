@@ -6,31 +6,31 @@ import axios from 'axios'
 const UserInputs = () => {
 
     const [userChoice, setUserChoice] = useState("placeholder");
-    const [getRandomJoke, setRandomJoke] = useState("");
-    const [randomButton, setRandomButton] = useState(false);
+    const [jokes, setJokes] = useState([]);
+    const [apiError, setApiError] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [photos, setPhotos] = useState([]);
+    const [submit, setSubmit] = useState(false);
+    const [userLimitChoice, setuserLimitChoice] = useState(10);
+    const [usersDadJokes, setUsersDadJokes] = useState(["Hello woorlddd"]);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target);
+        setuserLimitChoice(userLimitChoice - usersDadJokes.length);
+        setSearchTerm(userChoice);
+        setSubmit(true);
     }
-    const [searchTerm , setSearchTerm] =useState('');
-    const [photos, setPhotos] = useState([]);
+
 
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
-    
-    }
-    // Code was angry added 'Button' to variable name.
-    const handleSubmitButton = (e) => {
-        e.preventDefault();
-        setSearchTerm(userChoice);
-
     }
 
-    const handleButtonClick = (e) => {
-        setRandomButton(true);
 
-    }
+    // const handleButtonClick = (e) => {
+    //     setRandomButton(true);
+    // }
 
     const apiKey = `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`
 
@@ -44,11 +44,43 @@ const UserInputs = () => {
                 query: searchTerm,
                 per_page: 10,
             }
-        }).then((response)=> {
-            console.log(response.data.results);
-            setPhotos(response.data.results)
+        }).then((response) => {
+            setPhotos(response.data.results);
+        }).catch((error) => {
+            setApiError(error)
         })
     }, [searchTerm]);
+
+
+    const randomNumber = Math.floor(Math.random() * 64);
+
+
+    
+
+    useEffect(() => {
+        if(submit){
+            axios({
+                url: `https://icanhazdadjoke.com/search`,
+                dataResponse: `json`,
+                method: `GET`,
+                headers: {
+                    "Accept": "application/json"
+                },
+                params: {
+                    limit: userLimitChoice,
+                    page: randomNumber,
+                    total_jokes: 100
+                }
+            }).then((response) => {
+                setJokes(response.data.results)
+            }).catch((error) => {
+                setApiError(error)
+            })
+        }
+    }, [submit])
+
+
+    
 
     return (
         <>
@@ -71,7 +103,7 @@ const UserInputs = () => {
                     <button type="submit">Submit</button>
                 </form>
             </div>
-        <Results photos={photos}/>
+            <Results photos={photos} jokes={jokes} />
         </>
     )
 

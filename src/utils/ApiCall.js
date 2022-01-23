@@ -5,50 +5,40 @@ import { useEffect, useState } from 'react';
 
 
 const ApiCall = () => {
-// const [randoJk, setRandojk] = useState("");
-const randomNumber = Math.floor(Math.random() * 100);
+     // const [randoJk, setRandojk] = useState("");
+     // const randomNumber = Math.floor(Math.random() * 100);
 
-// / performing the network request
-// const [apiData, setApiData] = useState('');
-const [apiError, setApiError] = useState(false); 
+     // // / performing the network request
+     // const [apiData, setApiData] = useState([]);
+     // const [apiError, setApiError] = useState(false);
 
 
-useEffect( () => {
+     // useEffect(() => {
+     //      axios({
+     //           url: `https://icanhazdadjoke.com/`,
+     //           dataResponse: `json`,
+     //           method: `GET`,
+     //           headers: {
+     //                "Accept": "application/json"
+     //           },
+     //           params: {
+     //                limit: 10,
+     //                page: randomNumber,
+     //                total_jokes: 100
+     //           } 
+     //      }).then((response) => {
+     //           setApiData(response.data)
+     //      })
+     // }, [])
+
      
-          return axios({
-               url: `https://icanhazdadjoke.com/search`,
-               dataResponse: `json`,
-               method: `GET`,
-               headers: {
-               "Accept": "application/json"
-               },
-               params: {limit: 10,
-                    page: randomNumber,
-                    total_jokes: 100
-               }
-          }).then((response) => {
-               // setApiData(response.data.results);
-               const dataResults = (response.data.results);
-               console.log(dataResults);
+     // console.log(apiData);
+ 
 
-          }).catch((apiError) => {
-               setApiError(true)
-          })
-}, [])
-
-
-return(
-     // setDadJoke(response.data.joke)
-     console.log(dataResults)
-     // <>
-     //      {apiData.map((item, value) => {
-     //           // return(
-     //           // // <div>
-     //           // // <p>{apiData}</p>
-     //           // // </div>
-     //           // )
-     //      }  )} 
-     // </>
+     return (
+          <>
+        
+          </>
 
 
      )
