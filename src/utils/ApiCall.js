@@ -31,15 +31,6 @@ const ApiCall = () => {
      //      })
      // }, [])
 
-     
-     // console.log(apiData);
- 
-
-     return (
-          <>
-        
-          </>
-
 
      )
 }
