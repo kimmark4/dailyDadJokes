@@ -30,7 +30,7 @@ useEffect( () => {
           }).then((response) => {
                // setApiData(response.data.results);
                const dataResults = (response.data.results);
-              setJokes(dataResults);
+               setJokes(dataResults);
 
           }).catch((apiError) => {
                setApiError(true)
@@ -52,14 +52,14 @@ return(
      // </>
      <>
      {     
-        jokes.map( (joke) => {
+          jokes.map( (joke) => {
           return(
-            <div key={joke.id}>
-              <p>{joke.joke}</p>
-            </div>
+               <div key={joke.id}>
+               <p>{joke.joke}</p>
+               </div>
           )
-        })
-      }
+          })
+          }
      </>
 
      )
