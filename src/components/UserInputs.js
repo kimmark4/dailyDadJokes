@@ -12,7 +12,7 @@ const UserInputs = () => {
     const [photos, setPhotos] = useState([]);
     const [submit, setSubmit] = useState(false);
     const [userLimitChoice, setuserLimitChoice] = useState(10);
-    const [usersDadJokes, setUsersDadJokes] = useState(["Hello woorlddd"]);
+    const [usersDadJokes, setUsersDadJokes] = useState([]);
 
 
     const handleSubmit = (e) => {
@@ -79,6 +79,7 @@ const UserInputs = () => {
         }
     }, [submit])
 
+    
 
     
 
