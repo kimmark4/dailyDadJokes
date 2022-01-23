@@ -11,6 +11,7 @@ const randomNumber = Math.floor(Math.random() * 100);
 // / performing the network request
 // const [apiData, setApiData] = useState('');
 const [apiError, setApiError] = useState(false); 
+const [jokes, setJokes] = useState([]);
 
 
 useEffect( () => {
@@ -29,7 +30,7 @@ useEffect( () => {
           }).then((response) => {
                // setApiData(response.data.results);
                const dataResults = (response.data.results);
-               console.log(dataResults);
+              setJokes(dataResults);
 
           }).catch((apiError) => {
                setApiError(true)
@@ -39,7 +40,7 @@ useEffect( () => {
 
 return(
      // setDadJoke(response.data.joke)
-     console.log(dataResults)
+     // console.log(dataResults)
      // <>
      //      {apiData.map((item, value) => {
      //           // return(
@@ -49,7 +50,17 @@ return(
      //           // )
      //      }  )} 
      // </>
-
+     <>
+     {     
+        jokes.map( (joke) => {
+          return(
+            <div key={joke.id}>
+              <p>{joke.joke}</p>
+            </div>
+          )
+        })
+      }
+     </>
 
      )
 }
