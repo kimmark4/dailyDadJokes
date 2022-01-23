@@ -12,7 +12,7 @@ const randomNumber = Math.floor(Math.random() * 100);
      const [apiData, setApiData] = useState("");
 
 
-useEffect(() => {
+useEffect( () => {
      
           return axios({
                url: `https://icanhazdadjoke.com/search`,
@@ -33,19 +33,20 @@ useEffect(() => {
 }, [])
 
 
-return(
-     // setDadJoke(response.data.joke)
-     <>
-          {apiData.map((item, value) =>{
-               return(
-               <div>
-               <p>{apiData}</p>
-               </div>
-               )
-          }  )} 
-     </>
+// return(
+//      // setDadJoke(response.data.joke)
+//      // console.log(response.data.joke)
+//      // <>
+//      //      {apiData.map((item, value) => {
+//      //           // return(
+//      //           // // <div>
+//      //           // // <p>{apiData}</p>
+//      //           // // </div>
+//      //           // )
+//      //      }  )} 
+//      // </>
 
 
-     )
+//      )
 }
 export default ApiCall;

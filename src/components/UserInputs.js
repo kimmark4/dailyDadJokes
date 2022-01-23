@@ -6,7 +6,6 @@ import axios from 'axios'
 const UserInputs = () => {
 
     const [userChoice, setUserChoice] = useState("placeholder");
-<<<<<<< HEAD
     const [getRandomJoke, setRandomJoke] = useState("");
     const [randomButton, setRandomButton] = useState(false);
 
@@ -14,28 +13,24 @@ const UserInputs = () => {
         e.preventDefault();
         console.log(e.target);
     }
-=======
     const [searchTerm , setSearchTerm] =useState('');
     const [photos, setPhotos] = useState([]);
->>>>>>> 3534c354d5828a5da3eb1b77e6e6c065941184f2
 
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
-      
+    
     }
-    const handleSubmit = (e) => {
+    const handleSubmitButton = (e) => {
         e.preventDefault();
         setSearchTerm(userChoice);
 
     }
 
-<<<<<<< HEAD
     const handleButtonClick = (e) => {
         setRandomButton(true);
 
     }
 
-=======
     const apiKey = `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`
 
     useEffect(() => {
@@ -53,8 +48,7 @@ const UserInputs = () => {
             setPhotos(response.data.results)
         })
     }, [searchTerm]);
-   
->>>>>>> 3534c354d5828a5da3eb1b77e6e6c065941184f2
+
     return (
         <>
             <div>
@@ -77,7 +71,7 @@ const UserInputs = () => {
                 </form>
             </div>
         <Results photos={photos}/>
-         </>
+        </>
     )
 
 }
