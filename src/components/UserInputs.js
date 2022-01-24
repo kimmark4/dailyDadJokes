@@ -1,26 +1,30 @@
 
 import { useEffect, useState } from 'react'
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
     const [userLimitChoice, setuserLimitChoice] = useState(10);
-    const [searchTerm, setSearchTerm] = useState('');
     const [userChoice, setUserChoice] = useState("placeholder");
     const [submit, setSubmit] = useState(false);
     const [usersDadJokes, setUsersDadJokes] = useState(["asdf"]);
-
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
+        
         event.preventDefault();
         // setuserLimitChoice(userLimitChoice - usersDadJokes.length);
         // setSearchTerm(userChoice);
         // setSubmit(true);
         propTerm(userChoice);
         propLimit(userLimitChoice - usersDadJokes.length);
-        propSubmit(true)
+        propSubmit(true);
+        console.log(userChoice);
+        navigate('/results');
+
     }
 
 
@@ -31,19 +35,23 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
     const userButton = () => {
         console.log(userChoice);
+        // setSearchTerm(propTerm);
+       
+        
     }
-
+    // console.log(searchTerm);
 
     useEffect(() => {
 
         return () => {
             console.log("leaving the page");
+            console.log(userChoice);
             handleSubmit();
             
         }
     }, [])
 
-
+    console.log(propTerm);
 
     return (
         <>
@@ -62,27 +70,24 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                         <option value="cats">Cats</option>
                         <option value="bunnies">Bunnies</option>
                     </select>
-                    <Link to='/results' >Submit</Link>
-
-                    <label htmlFor="customJoke1">
-                            Enter your dad joke:
+                    <label htmlFor="customJoke1">Enter your dad joke:
                     </label>
                     <input type ="text" id="customJoke1" name="customJoke1"/>
-                    <button type="submit" id="jokeButton1" name="jokeButton1"></button>
+                    {/* <button type="submit" id="jokeButton1" name="jokeButton1"></button> */}
                     <label htmlFor="customJoke2">
                     Enter your dad joke:
                     </label>
                     <input type ="text" id="customJoke2" name="customJoke2"/>
-                    <button  type="submit" id="jokeButton2" name="jokeButton2"></button>
+                    {/* <button  type="submit" id="jokeButton2" name="jokeButton2"></button> */}
                     <label htmlFor="customJoke3">
                         Enter your dad joke:
                     </label>
                     <input type ="text" id="customJoke3" name="customJoke3"/>
-                    <button  type="submit" id="jokeButton3" name="jokeButton3"></button>
-                    <button type="submit">Submit</button>
+                    {/* <button  type="submit" id="jokeButton3" name="jokeButton3"></button> */}
+                    <Link to='/results'  onClick={ handleSubmit }>Submit</Link>
 
                 </form>
-                <button onClick={userButton}>userinputjs button</button>
+                <button >userinputjs button</button>
             </div>
         </>
     )

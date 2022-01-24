@@ -3,7 +3,7 @@ import Header from './components/Header.js';
 import Results from './components/Results.js'
 import UserInputs from './components/UserInputs.js';
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
@@ -12,6 +12,7 @@ function App() {
   const [submit, setSubmit] = useState(false);
   const [userLimitChoice, setuserLimitChoice] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
+  const [userChoice, setUserChoice] = useState("placeholder");
 
   
 
@@ -21,11 +22,12 @@ function App() {
     console.log(submit);
   }
 
+
   return (
     <div className="dadJokeApp">
 
       <Header />
-// routes
+    
       <h2>{searchTerm}</h2>
       <p>{searchTerm}</p>
       <p>{userLimitChoice}</p>
@@ -37,9 +39,8 @@ function App() {
       </Routes>
 
 
-      <UserInputs /> 
+      {/* <UserInputs />  */}
         {/* <Results /> */}
- main
     </div>
   );
 }
