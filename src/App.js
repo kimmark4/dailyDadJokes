@@ -8,17 +8,17 @@ import { useState } from 'react';
 
 function App() {
 
-  // const [submit, setSubmit] = useState(false);
-  // const [userLimitChoice, setuserLimitChoice] = useState(10);
-  // const [searchTerm, setSearchTerm] = useState('');
+  const [submit, setSubmit] = useState(false);
+  const [userLimitChoice, setuserLimitChoice] = useState(10);
+  const [searchTerm, setSearchTerm] = useState('');
 
   
 
-  // const appjsClick = () => {
-  //   console.log(searchTerm);
-  //   console.log(userLimitChoice);
-  //   console.log(submit);
-  // }
+  const appjsClick = () => {
+    console.log(searchTerm);
+    console.log(userLimitChoice);
+    console.log(submit);
+  }
 
   return (
     <div className="dadJokeApp">
@@ -30,8 +30,7 @@ function App() {
       <button onClick={appjsClick}>this is app.js</button>
 
       <Routes>
-        {/* <Route path="/" element={<UserInputs propTerm={searchTerm => setSearchTerm(searchTerm)} propLimit={userLimitChoice => setuserLimitChoice(userLimitChoice)} propSubmit={submit => setSubmit(submit)} />} /> */}
-        <Route path="/" element={ <UserInputs /> } />
+        <Route path="/" element={<UserInputs propTerm={searchTerm => setSearchTerm(searchTerm)} propLimit={userLimitChoice => setuserLimitChoice(userLimitChoice)} propSubmit={submit => setSubmit(submit)} />} />
         <Route path="/results" element={<Results submit={submit} userLimitChoice={userLimitChoice} searchTerm={searchTerm} />} />
       </Routes>
 

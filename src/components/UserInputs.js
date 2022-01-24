@@ -4,27 +4,47 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 
 
-const UserInputs = () => {
+const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
     const [userLimitChoice, setuserLimitChoice] = useState(10);
     const [searchTerm, setSearchTerm] = useState('');
     const [userChoice, setUserChoice] = useState("placeholder");
     const [submit, setSubmit] = useState(false);
-    const [usersDadJokes, setUsersDadJokes] = useState([]);
+    const [usersDadJokes, setUsersDadJokes] = useState(["asdf"]);
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setuserLimitChoice(userLimitChoice - usersDadJokes.length);
-        setSearchTerm(userChoice);
-        setSubmit(true);
-      }
-    
-    
-      const handleUserChoice = (e) => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // setuserLimitChoice(userLimitChoice - usersDadJokes.length);
+        // setSearchTerm(userChoice);
+        // setSubmit(true);
+        propTerm(userChoice);
+        propLimit(userLimitChoice - usersDadJokes.length);
+        propSubmit(true)
+    }
+
+
+    const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
-      }
-    
+
+    }
+
+    const userButton = () => {
+        console.log(userChoice);
+    }
+
+
+    useEffect(() => {
+
+        return () => {
+            console.log("leaving the page");
+            handleSubmit();
+            
+        }
+    }, [])
+
+
+
     return (
         <>
             <div>
@@ -42,10 +62,9 @@ const UserInputs = () => {
                         <option value="cats">Cats</option>
                         <option value="bunnies">Bunnies</option>
                     </select>
-                    <Link to='/results' >
-                        <button type="submit">Submit</button>
-                    </Link>
+                    <Link to='/results' >Submit</Link>
                 </form>
+                <button onClick={userButton}>userinputjs button</button>
             </div>
         </>
     )
