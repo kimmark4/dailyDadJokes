@@ -20,13 +20,12 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
         // setSubmit(true);
         propTerm(userChoice);
         propLimit(userLimitChoice - usersDadJokes.length);
-        propSubmit(true)
+        propSubmit(true);
     }
 
 
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
-
     }
 
     const userButton = () => {
@@ -35,7 +34,6 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
 
     useEffect(() => {
-
         return () => {
             console.log("leaving the page");
             handleSubmit();
