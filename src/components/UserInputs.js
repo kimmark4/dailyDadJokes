@@ -13,6 +13,9 @@ const UserInputs = () => {
     const [submit, setSubmit] = useState(false);
     const [userLimitChoice, setuserLimitChoice] = useState(10);
     const [usersDadJokes, setUsersDadJokes] = useState([]);
+    const [jokeNumberOne, setJokeNumberOne] = useState( '' );
+    const [jokeNumberTwo, setJokeNumberTwo] = useState( '' );
+    const [jokeNumberThree, setJokeNumberThree] = useState( '' );
 
 
     const handleSubmit = (e) => {
@@ -20,12 +23,17 @@ const UserInputs = () => {
         setuserLimitChoice(userLimitChoice - usersDadJokes.length);
         setSearchTerm(userChoice);
         setSubmit(true);
+        if (submit === true ) {
+            const addDadJokes = [{jokeNumberOne}, {jokeNumberTwo}, {jokeNumberThree}]
+            console.log(addDadJokes);
+        }
+        
     }
 
 
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
-    }
+    } 
 
 
     // const handleButtonClick = (e) => {
@@ -100,22 +108,37 @@ const UserInputs = () => {
                         <option value="cats">Cats</option>
                         <option value="bunnies">Bunnies</option>
                     </select>
-                    <label htmlFor="customJoke1">
-                            Enter your dad joke:
-                    </label>
-                    <input type ="text" id="customJoke1" name="customJoke1"/>
-                    <button type="submit" id="jokeButton1" name="jokeButton1"></button>
-                    <label htmlFor="customJoke2">
-                    Enter your dad joke:
-                    </label>
-                    <input type ="text" id="customJoke2" name="customJoke2"/>
-                    <button  type="submit" id="jokeButton2" name="jokeButton2"></button>
-                    <label htmlFor="customJoke3">
-                        Enter your dad joke:
-                    </label>
-                    <input type ="text" id="customJoke3" name="customJoke3"/>
-                    <button  type="submit" id="jokeButton3" name="jokeButton3"></button>
+                    <div>
+                        <input
+                            type="text"
+                            value={jokeNumberOne}
+                            placeholder="Enter your dad joke"
+                            onChange={e => setJokeNumberOne(e.target.value)}
+                        />
+                        <p>
+                            <strong>{jokeNumberOne}</strong>
+                        </p>
+                        <input
+                            type="text"
+                            value={jokeNumberTwo}
+                            placeholder="Enter your dad joke"
+                            onChange={e => setJokeNumberTwo(e.target.value)}
+                        />
+                        <p>
+                            <strong>{jokeNumberTwo}</strong>
+                        </p>
+                        <input
+                            type="text"
+                            value={jokeNumberThree}
+                            placeholder="Enter your dad joke"
+                            onChange={e => setJokeNumberThree(e.target.value)}
+                        />
+                        <p>
+                            <strong>{jokeNumberThree}</strong>
+                        </p>
+                    </div>
                     <button type="submit">Submit</button>
+                    
                 </form>
             </div>
             <Results photos={photos} jokes={jokes} />
