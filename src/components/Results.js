@@ -42,7 +42,6 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const userButton = () => {
         console.log(userChoice);
         // setSearchTerm(propTerm);
-       
         
     }
     // console.log(searchTerm);
