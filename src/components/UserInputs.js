@@ -61,6 +61,24 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                         <option value="bunnies">Bunnies</option>
                     </select>
                     <Link to='/results' >Submit</Link>
+
+                    <label htmlFor="customJoke1">
+                            Enter your dad joke:
+                    </label>
+                    <input type ="text" id="customJoke1" name="customJoke1"/>
+                    <button type="submit" id="jokeButton1" name="jokeButton1"></button>
+                    <label htmlFor="customJoke2">
+                    Enter your dad joke:
+                    </label>
+                    <input type ="text" id="customJoke2" name="customJoke2"/>
+                    <button  type="submit" id="jokeButton2" name="jokeButton2"></button>
+                    <label htmlFor="customJoke3">
+                        Enter your dad joke:
+                    </label>
+                    <input type ="text" id="customJoke3" name="customJoke3"/>
+                    <button  type="submit" id="jokeButton3" name="jokeButton3"></button>
+                    <button type="submit">Submit</button>
+
                 </form>
                 <button onClick={userButton}>userinputjs button</button>
             </div>

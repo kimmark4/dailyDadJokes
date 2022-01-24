@@ -1,6 +1,7 @@
 $headerFont: 'Monoton', cursive;
-$baseFont: 'Dorsa', sans-serif;
-
+$baseFont: 'Chicle', cursive;
+$blue: #a8f0f0;
+$gold: #f0a848;
 
 html {
      font-size: 125%;
@@ -10,5 +11,12 @@ h1 {
      font-family: $headerFont;
      text-transform: uppercase;
      text-align: center;
+     text-shadow: 2px 2px 1px $gold;
 }
 
+p {
+     font-family: $baseFont;
+     font-weight: 600;
+     letter-spacing: 1.5px;
+     // text-transform: uppercase;
+}
