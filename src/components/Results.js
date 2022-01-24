@@ -71,7 +71,9 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
           )
         })
       }
+ routes
       
+ main
       {
         jokes.map((singularJoke) => {
           return (

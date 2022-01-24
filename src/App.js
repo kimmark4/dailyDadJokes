@@ -1,9 +1,10 @@
-// import './styles/sass/index.scss';
+import './styles/sass/index.scss';
 import Header from './components/Header.js';
 import Results from './components/Results.js'
 import UserInputs from './components/UserInputs.js';
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react';
+
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <div className="dadJokeApp">
 
       <Header />
+// routes
       <h2>{searchTerm}</h2>
       <p>{searchTerm}</p>
       <p>{userLimitChoice}</p>
@@ -34,6 +36,10 @@ function App() {
         <Route path="/results" element={<Results submit={submit} userLimitChoice={userLimitChoice} searchTerm={searchTerm} />} />
       </Routes>
 
+
+      <UserInputs /> 
+        {/* <Results /> */}
+ main
     </div>
   );
 }
