@@ -1,87 +1,49 @@
-import Results from "./Results.js";
+
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+
+import { Link } from "react-router-dom";
 
 
-const UserInputs = () => {
+const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
-    const [userChoice, setUserChoice] = useState("placeholder");
-    const [jokes, setJokes] = useState([]);
-    const [apiError, setApiError] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [photos, setPhotos] = useState([]);
-    const [submit, setSubmit] = useState(false);
     const [userLimitChoice, setuserLimitChoice] = useState(10);
-    const [usersDadJokes, setUsersDadJokes] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [userChoice, setUserChoice] = useState("placeholder");
+    const [submit, setSubmit] = useState(false);
+    const [usersDadJokes, setUsersDadJokes] = useState(["asdf"]);
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setuserLimitChoice(userLimitChoice - usersDadJokes.length);
-        setSearchTerm(userChoice);
-        setSubmit(true);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // setuserLimitChoice(userLimitChoice - usersDadJokes.length);
+        // setSearchTerm(userChoice);
+        // setSubmit(true);
+        propTerm(userChoice);
+        propLimit(userLimitChoice - usersDadJokes.length);
+        propSubmit(true)
     }
 
 
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
+
+    }
+
+    const userButton = () => {
+        console.log(userChoice);
     }
 
 
-    // const handleButtonClick = (e) => {
-    //     setRandomButton(true);
-    // }
-
-    const apiKey = `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`
-
     useEffect(() => {
-        axios({
-            url: `https://api.unsplash.com/search/photos`,
-            dataResponse: `json`,
-            method: `GET`,
-            params: {
-                client_id: apiKey,
-                query: searchTerm,
-                per_page: 10,
-            }
-        }).then((response) => {
-            setPhotos(response.data.results);
-        }).catch((error) => {
-            setApiError(error)
-        })
-    }, [searchTerm]);
 
-
-    const randomNumber = Math.floor(Math.random() * 64);
-
-
-    
-
-    useEffect(() => {
-        if(submit){
-            axios({
-                url: `https://icanhazdadjoke.com/search`,
-                dataResponse: `json`,
-                method: `GET`,
-                headers: {
-                    "Accept": "application/json"
-                },
-                params: {
-                    limit: userLimitChoice,
-                    page: randomNumber,
-                    total_jokes: 100
-                }
-            }).then((response) => {
-                setJokes(response.data.results)
-            }).catch((error) => {
-                setApiError(error)
-            })
+        return () => {
+            console.log("leaving the page");
+            handleSubmit();
+            
         }
-    }, [submit])
+    }, [])
 
-    
-    
-    
+
 
     return (
         <>
@@ -100,6 +62,8 @@ const UserInputs = () => {
                         <option value="cats">Cats</option>
                         <option value="bunnies">Bunnies</option>
                     </select>
+                    <Link to='/results' >Submit</Link>
+
                     <label htmlFor="customJoke1">
                             Enter your dad joke:
                     </label>
@@ -116,9 +80,10 @@ const UserInputs = () => {
                     <input type ="text" id="customJoke3" name="customJoke3"/>
                     <button  type="submit" id="jokeButton3" name="jokeButton3"></button>
                     <button type="submit">Submit</button>
+
                 </form>
+                <button onClick={userButton}>userinputjs button</button>
             </div>
-            <Results photos={photos} jokes={jokes} />
         </>
     )
 
