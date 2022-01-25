@@ -17,8 +17,8 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const jokeData = [{joke: jokeNumberOne}, {joke: jokeNumberTwo}, {joke: jokeNumberThree}];
-        const filteredJokeData = jokeData.filter( (banana) => {
-            return banana.joke !== ""
+        const filteredJokeData = jokeData.filter( (jokeFilter) => {
+            return jokeFilter.joke !== ""
         })
         propTerm(userChoice);
         propLimit(userLimitChoice - filteredJokeData.length);
