@@ -7,14 +7,11 @@ import { Link, useLocation } from "react-router-dom";
 const Results = ({ submit, userLimitChoice, searchTerm }) => {
   
   const [jokes, setJokes] = useState([]);
-  // const [apiError, setApiError] = useState(false);
   const [photos, setPhotos] = useState([]);
-  
   const location = useLocation()
 
-  // const handleButtonClick = (e) => {
-  //     setRandomButton(true);
-  // }
+const displayJoke = (location.state);
+
 
   const apiKey = `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`
 
@@ -38,7 +35,8 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
   const randomNumber = Math.floor(Math.random() * 64);
 
   useEffect(() => {
-    console.log(location.state);
+    // setDisplayJoke(location.state);
+
     if (submit) {
       axios({
         url: `https://icanhazdadjoke.com/search`,
@@ -61,9 +59,7 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
   return (
     <>
-    <h1>helloooooo</h1>
-      {
-        photos.map((photo) => {
+      { photos.map((photo) => {
           return (
             <div key={photo.id}>
               <img src={photo.urls.small} alt={photo.alt_description} />
@@ -80,7 +76,18 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
           )
         })
       }
+
+      {
+      displayJoke.map((userDisplay, index) => {
+        return(
+          <div key={index}>
+            <p>{userDisplay.joke}</p>
+          </div>
+        )
+      })
+      }
     </>
+
   )
 }
 
