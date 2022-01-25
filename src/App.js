@@ -16,31 +16,15 @@ function App() {
 
   
 
-  const appjsClick = () => {
-    console.log(searchTerm);
-    console.log(userLimitChoice);
-    console.log(submit);
-  }
-
-
   return (
     <div className="dadJokeApp">
 
       <Header />
-    
-      <h2>{searchTerm}</h2>
-      <p>{searchTerm}</p>
-      <p>{userLimitChoice}</p>
-      <button onClick={appjsClick}>this is app.js</button>
-
       <Routes>
         <Route path="/" element={<UserInputs propTerm={searchTerm => setSearchTerm(searchTerm)} propLimit={userLimitChoice => setuserLimitChoice(userLimitChoice)} propSubmit={submit => setSubmit(submit)} />} />
         <Route path="/results" element={<Results submit={submit} userLimitChoice={userLimitChoice} searchTerm={searchTerm} />} />
       </Routes>
 
-
-      {/* <UserInputs />  */}
-        {/* <Results /> */}
     </div>
   );
 }
