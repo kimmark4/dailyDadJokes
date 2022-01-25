@@ -1,7 +1,6 @@
-
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 
@@ -11,7 +10,7 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
   // const [apiError, setApiError] = useState(false);
   const [photos, setPhotos] = useState([]);
   
-
+  const location = useLocation()
 
   // const handleButtonClick = (e) => {
   //     setRandomButton(true);
@@ -39,6 +38,7 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
   const randomNumber = Math.floor(Math.random() * 64);
 
   useEffect(() => {
+    console.log(location.state);
     if (submit) {
       axios({
         url: `https://icanhazdadjoke.com/search`,
@@ -71,9 +71,6 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
           )
         })
       }
- routes
-      
- main
       {
         jokes.map((singularJoke) => {
           return (
