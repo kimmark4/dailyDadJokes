@@ -9,10 +9,10 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const [userLimitChoice, setuserLimitChoice] = useState(10);
     const [userChoice, setUserChoice] = useState("placeholder");
     const [submit, setSubmit] = useState(false);
-    const [usersDadJokes, setUsersDadJokes] = useState(["asdf"]);
-    const [jokeNumberOne, setJokeNumberOne] = useState( '' );
-    const [jokeNumberTwo, setJokeNumberTwo] = useState( '' );
-    const [jokeNumberThree, setJokeNumberThree] = useState( '' );
+    const [usersDadJokes, setUsersDadJokes] = useState([]);
+    const [jokeNumberOne, setJokeNumberOne] = useState("");
+    const [jokeNumberTwo, setJokeNumberTwo] = useState("");
+    const [jokeNumberThree, setJokeNumberThree] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -24,10 +24,11 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
         propTerm(userChoice);
         propLimit(userLimitChoice - usersDadJokes.length);
         propSubmit(true);
-         if (propSubmit === true ) {
+        if (propSubmit === true ) {
             const addDadJokes = [{jokeNumberOne}, {jokeNumberTwo}, {jokeNumberThree}]
         }
         navigate('/results');
+        console.log( `a message`, jokeNumberOne, jokeNumberTwo, jokeNumberThree)
 
     }
 
@@ -40,7 +41,7 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const userButton = () => {
         console.log(userChoice);
         // setSearchTerm(propTerm);
-       
+        
         
     }
     // console.log(searchTerm);
