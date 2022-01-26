@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { Link, useNavigate } from "react-router-dom";
 
+import arrowPic from "../styles/assets/arrowPic.png";
+
 
 
 const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
@@ -80,7 +82,9 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                             />
                         </div>
                     </div>
-                    <button type='submit'>Enter</button>
+                    <img src={arrowPic} alt="Click to proceed!" className='arrowImage'></img>
+                    <button type='submit' className='enterButton'>Enter</button>
+
 
                 </form>
                 {/* <button >userinputjs button</button> */}
