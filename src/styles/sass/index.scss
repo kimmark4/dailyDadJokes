@@ -34,10 +34,26 @@ form {
   justify-content: center;
   width: 40%;
   padding: 10px 2px;
-  margin: 0 30% 0 30%;
+  margin: 0 auto;
   background-color: $gold;
   border: 2px solid $burnt;
   border-radius: 15px;
+}
+
+.dropDown {
+  background-color: $lemon;
+  border: none;
+  padding: .5em 1em;
+  border-radius: 15px;
+  width: 60%;
+  font-family: $baseFont;
+  
+}
+
+label {
+  font-family: $baseFont;
+  margin: 10px 0;
+  font-size: 1.5rem;
 }
 
 .stackBox {
@@ -45,7 +61,6 @@ form {
   flex-direction: column;
   margin: 10px 0;
   font-family: $baseFont;
-  text-transform: uppercase;
 }
 
 input {
@@ -56,6 +71,11 @@ input {
   border: 2px solid $lemon;
   padding: .5em 1em;
   border-radius: 15px;
+}
+
+button {
+  
+  
 }
 
 .slideshow {

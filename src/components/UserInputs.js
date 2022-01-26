@@ -42,6 +42,7 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                 <form className="form"
                     onSubmit={(event) => handleSubmit(event)}
                 >
+                    <label htmlFor="select">Select Your Theme</label>
                     <select className="dropDown"
                         id="category"
                         name="category"
@@ -55,35 +56,29 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                     </select>
                     <div className='customDadDiv'>
                         <div className="stackBox">
-                        <label htmlFor="jokeNumberOne">Step It Up Please, Add A Dad Joke</label>
-                        <input
-                            type="text"
-                            value={jokeNumberOne}
-                            placeholder="Enter your dad joke"
-                            onChange={e => setJokeNumberOne(e.target.value)}
-                            required
-                        />
-                        </div>
-                        <div className="stackBox">
-                        <label htmlFor="jokeNumberTwo">Another Dad Joke Please</label>
-                        <input
-                            type="text"
-                            value={jokeNumberTwo}
-                            placeholder="Enter your dad joke"
-                            onChange={e => setJokeNumberTwo(e.target.value)}
-                        />
-                        </div>
-                        <div className="stackBox">
-                        <label htmlFor="jokeNumberThree">One Final Joke To Proceed</label>
-                        <input
-                            type="text"
-                            value={jokeNumberThree}
-                            placeholder="Enter your dad joke"
-                            onChange={e => setJokeNumberThree(e.target.value)}
-                        />
+                            <label htmlFor="jokeNumberOne">Step It Up Please, Add A Dad Joke</label>
+                            <input
+                                type="text"
+                                value={jokeNumberOne}
+                                placeholder="Dad Joke Required"
+                                onChange={e => setJokeNumberOne(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="text"
+                                value={jokeNumberTwo}
+                                placeholder="Enter your dad joke"
+                                onChange={e => setJokeNumberTwo(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                value={jokeNumberThree}
+                                placeholder="Enter your dad joke"
+                                onChange={e => setJokeNumberThree(e.target.value)}
+                            />
                         </div>
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button type='submit'>Enter</button>
 
                 </form>
                 {/* <button >userinputjs button</button> */}
