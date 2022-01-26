@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
-    const [userLimitChoice, setuserLimitChoice] = useState(10);
+    const [userLimitChoice] = useState(10);
     const [userChoice, setUserChoice] = useState("placeholder");
     const [jokeNumberOne, setJokeNumberOne] = useState("");
     const [jokeNumberTwo, setJokeNumberTwo] = useState("");

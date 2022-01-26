@@ -3,7 +3,7 @@ import Header from './components/Header.js';
 import Results from './components/Results.js'
 import UserInputs from './components/UserInputs.js';
 import { Routes, Route } from 'react-router-dom'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 
@@ -12,7 +12,7 @@ function App() {
   const [submit, setSubmit] = useState(false);
   const [userLimitChoice, setuserLimitChoice] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
-  const [userChoice, setUserChoice] = useState("placeholder");
+  
 
   
 

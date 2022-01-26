@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 
@@ -12,16 +12,13 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
 const displayJoke = (location.state);
 
-
-  const apiKey = `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`
-
   useEffect(() => {
     axios({
       url: `https://api.unsplash.com/search/photos`,
       dataResponse: `json`,
       method: `GET`,
       params: {
-        client_id: apiKey,
+        client_id: `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`,
         query: searchTerm,
         per_page: 10,
       }
