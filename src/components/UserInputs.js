@@ -1,53 +1,45 @@
-
 import { useEffect, useState } from 'react'
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
     const [userLimitChoice, setuserLimitChoice] = useState(10);
-    const [searchTerm, setSearchTerm] = useState('');
     const [userChoice, setUserChoice] = useState("placeholder");
-    const [submit, setSubmit] = useState(false);
-    const [usersDadJokes, setUsersDadJokes] = useState(["asdf"]);
-
-
+    const [jokeNumberOne, setJokeNumberOne] = useState("");
+    const [jokeNumberTwo, setJokeNumberTwo] = useState("");
+    const [jokeNumberThree, setJokeNumberThree] = useState("");
+    const navigate = useNavigate();
+    
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        // setuserLimitChoice(userLimitChoice - usersDadJokes.length);
-        // setSearchTerm(userChoice);
-        // setSubmit(true);
+        const jokeData = [{joke: jokeNumberOne}, {joke: jokeNumberTwo}, {joke: jokeNumberThree}];
+        const filteredJokeData = jokeData.filter( (jokeFilter) => {
+            return jokeFilter.joke !== ""
+        })
         propTerm(userChoice);
-        propLimit(userLimitChoice - usersDadJokes.length);
+        propLimit(userLimitChoice - filteredJokeData.length);
         propSubmit(true);
+        navigate('/results',
+        { 
+            state: filteredJokeData
+        })
     }
-
 
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
     }
 
-    const userButton = () => {
-        console.log(userChoice);
-    }
-
-
-    useEffect(() => {
-        return () => {
-            console.log("leaving the page");
-            handleSubmit();
-            
-        }
-    }, [])
-
-
+    
 
     return (
         <>
             <div>
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={(event) => handleSubmit(event)}
                 >
                     <select
                         id="category"
@@ -60,9 +52,39 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                         <option value="cats">Cats</option>
                         <option value="bunnies">Bunnies</option>
                     </select>
-                    <Link to='/results' >Submit</Link>
+                    <div>
+                        <input
+                            type="text"
+                            value={jokeNumberOne}
+                            placeholder="Enter your dad joke"
+                            onChange={e => setJokeNumberOne(e.target.value)}
+                        />
+                        <p>
+                            <strong>{jokeNumberOne}</strong>
+                        </p>
+                        <input
+                            type="text"
+                            value={jokeNumberTwo}
+                            placeholder="Enter your dad joke"
+                            onChange={e => setJokeNumberTwo(e.target.value)}
+                        />
+                        <p>
+                            <strong>{jokeNumberTwo}</strong>
+                        </p>
+                        <input
+                            type="text"
+                            value={jokeNumberThree}
+                            placeholder="Enter your dad joke"
+                            onChange={e => setJokeNumberThree(e.target.value)}
+                        />
+                        <p>
+                            <strong>{jokeNumberThree}</strong>
+                        </p>
+                    </div>
+                    <button type='submit'>Submit</button>
+
                 </form>
-                <button onClick={userButton}>userinputjs button</button>
+                {/* <button >userinputjs button</button> */}
             </div>
         </>
     )
