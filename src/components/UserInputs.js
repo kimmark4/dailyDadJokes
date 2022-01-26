@@ -11,7 +11,6 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const [jokeNumberOne, setJokeNumberOne] = useState("");
     const [jokeNumberTwo, setJokeNumberTwo] = useState("");
     const [jokeNumberThree, setJokeNumberThree] = useState("");
-   
     const navigate = useNavigate();
     
     
@@ -36,7 +35,7 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     }
 
     
- 
+
     return (
         <>
             <div>
