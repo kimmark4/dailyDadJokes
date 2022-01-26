@@ -14,6 +14,7 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const navigate = useNavigate();
     
     
+    // when the form submits, get the values of each of the user's inputs and set them into useStates.
     const handleSubmit = (event) => {
         event.preventDefault();
         const jokeData = [{joke: jokeNumberOne}, {joke: jokeNumberTwo}, {joke: jokeNumberThree}];
@@ -23,15 +24,16 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
         propTerm(userChoice);
         propLimit(userLimitChoice - filteredJokeData.length);
         propSubmit(true);
+        // using navigate here by the recommendation of Adrian and Joey to route the page to /results while pushing the data from the UserInputs component to the Results component. 
         navigate('/results',
         { 
             state: filteredJokeData
         })
     }
 
+
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
-
     }
 
     
