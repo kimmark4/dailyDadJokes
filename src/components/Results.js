@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
 import { useLocation } from "react-router-dom";
 
 
 
 const Results = ({ submit, userLimitChoice, searchTerm }) => {
-  
-  const [jokes, setJokes] = useState([]);
-  const [photos, setPhotos] = useState([]);
-  const location = useLocation()
 
-const displayJoke = (location.state);
+  const [randomJokes, setRandomJokes] = useState([]);
+  const [photos, setPhotos] = useState([]);
+  // const [userData, setUserData] = useState([]);
+  const location = useLocation();
+  const usersJokes = (location.state);
+  const totalJokes = [...randomJokes, ...usersJokes]
+
 
   useEffect(() => {
     axios({
@@ -32,8 +34,6 @@ const displayJoke = (location.state);
   const randomNumber = Math.floor(Math.random() * 64);
 
   useEffect(() => {
-    // setDisplayJoke(location.state);
-
     if (submit) {
       axios({
         url: `https://icanhazdadjoke.com/search`,
@@ -48,41 +48,67 @@ const displayJoke = (location.state);
           total_jokes: 100
         }
       }).then((response) => {
-        setJokes(response.data.results)
+        setRandomJokes(response.data.results)
       })
     }
   }, [submit])
 
 
+  // creating a new array with the data of the photos and the jokes combined into each objects
+  const userData = photos.map((singularPhoto, index) => {
+    return { ...singularPhoto, jokes: totalJokes[index] }
+  })
+
+  console.log(userData);
+
+
+
+  const delay = 30000;
+
+  const [index, setIndex] = useState(0);
+  const timeoutRef = useRef(null);
+
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }
+
+  useEffect(() => {
+    resetTimeout();
+    timeoutRef.current = setTimeout(
+      () =>
+        setIndex((prevIndex) =>
+          prevIndex === photos.length - 1 ? 0 : prevIndex + 1
+        ),
+      delay
+    );
+
+    return () => {
+      resetTimeout();
+    };
+  }, [index]);
+
+
+
   return (
     <>
-      { photos.map((photo) => {
-          return (
-            <div key={photo.id}>
-              <img src={photo.urls.small} alt={photo.alt_description} />
-            </div>
-          )
-        })
-      }
-      {
-        jokes.map((singularJoke) => {
-          return (
-            <div key={singularJoke.id}>
-              <p>{singularJoke.joke}</p>
-            </div>
-          )
-        })
-      }
+      <div className="slideshow">
+        <div className="slideshowSlider" style={{ transform: `translate3d(${- index * 100}%,0,0)` }}>
+          {
+            userData.map((singleSlide) => {
+              return (
+                <div className='slide' key={singleSlide.id}>
+                  <img src={singleSlide.urls.small} alt={singleSlide.alt_description} />
+                  <p>{singleSlide.jokes.joke}</p>
+                </div>
+              )
+            })
+          }
+          <Link to='/' >Go back</Link>
+        </div>
+      </div>
 
-      {
-      displayJoke.map((userDisplay, index) => {
-        return(
-          <div key={index}>
-            <p>{userDisplay.joke}</p>
-          </div>
-        )
-      })
-      }
     </>
 
   )
