@@ -108,7 +108,7 @@ const displayJoke = (location.state);
           )
         })
       }
-      {/* {
+      {
       displayJoke.map((userDisplay, index) => {
         return(
           <div className="slide" key={index}>
@@ -116,13 +116,13 @@ const displayJoke = (location.state);
           </div>
         )
       })
-      } */}
+      } 
       </div>
     </div>
       
   </> 
 
   )
-}
+} 
 
 export default Results;

@@ -37,12 +37,12 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     
 
     return (
-        <>
+        <div className='wrapper'>
             <div>
-                <form
+                <form className="form"
                     onSubmit={(event) => handleSubmit(event)}
                 >
-                    <select
+                    <select className="dropDown"
                         id="category"
                         name="category"
                         onChange={handleUserChoice}
@@ -53,41 +53,42 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                         <option value="cats">Cats</option>
                         <option value="bunnies">Bunnies</option>
                     </select>
-                    <div>
+                    <div className='customDadDiv'>
+                        <div className="stackBox">
+                        <label htmlFor="jokeNumberOne">Step It Up Please, Add A Dad Joke</label>
                         <input
                             type="text"
                             value={jokeNumberOne}
                             placeholder="Enter your dad joke"
                             onChange={e => setJokeNumberOne(e.target.value)}
+                            required
                         />
-                        <p>
-                            <strong>{jokeNumberOne}</strong>
-                        </p>
+                        </div>
+                        <div className="stackBox">
+                        <label htmlFor="jokeNumberTwo">Another Dad Joke Please</label>
                         <input
                             type="text"
                             value={jokeNumberTwo}
                             placeholder="Enter your dad joke"
                             onChange={e => setJokeNumberTwo(e.target.value)}
                         />
-                        <p>
-                            <strong>{jokeNumberTwo}</strong>
-                        </p>
+                        </div>
+                        <div className="stackBox">
+                        <label htmlFor="jokeNumberThree">One Final Joke To Proceed</label>
                         <input
                             type="text"
                             value={jokeNumberThree}
                             placeholder="Enter your dad joke"
                             onChange={e => setJokeNumberThree(e.target.value)}
                         />
-                        <p>
-                            <strong>{jokeNumberThree}</strong>
-                        </p>
+                        </div>
                     </div>
                     <button type='submit'>Submit</button>
 
                 </form>
                 {/* <button >userinputjs button</button> */}
             </div>
-        </>
+        </div>
     )
 
 }
