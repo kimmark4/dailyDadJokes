@@ -122,6 +122,6 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
     </>
 
   )
-}
+} 
 
 export default Results;
