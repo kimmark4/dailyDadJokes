@@ -362,7 +362,7 @@ input:hover {
   font-family: "Chicle", cursive;
   font-size: 2rem;
   text-transform: uppercase;
-  top: 890px;
+  top: 800px;
   background-color: transparent;
   z-index: 10;
 }
@@ -445,6 +445,20 @@ input:hover {
   margin-bottom: 40px;
 }
 
+@media (max-width: 930px) {
+  .dropDown {
+    width: 100%;
+  }
+
+  .enterButton {
+    top: 930px;
+  }
+}
+@media (maxwidth: 920px) {
+  .enterButton {
+    top: 850px;
+  }
+}
 @media (max-width: 640px) {
   .slideshow {
     max-width: 400px;

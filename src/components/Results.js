@@ -24,7 +24,7 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
       params: {
         client_id: `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`,
         query: searchTerm,
-        // page: randomNumber,
+        page: randomNumber,
         per_page: 10,
       }
     }).then((response) => {
@@ -67,11 +67,13 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
   // creating a new array with the data of the photos and the jokes combined into each objects
   // create this array within a useEffect so that it will render after all the jokes are loaded
   useEffect(() => {
+    if (photos.length > 0 && randomJokes.length > 0) {
     const newArray = photos.map((singularPhoto, index) => {
       return { ...singularPhoto, jokes: totalJokes[index] }
     })
     setUserData(newArray)
-  }, [randomJokes])
+  }
+  }, [randomJokes, photos])
 
 
   // Slideshow, creating the 30sec delay
