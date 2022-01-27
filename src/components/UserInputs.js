@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { useNavigate } from "react-router-dom";
 
-import arrowPic from "../styles/assets/arrowPic.png";
+import arrowPic from "../styles/assets/arrowPicEdited.png";
 
 
 
