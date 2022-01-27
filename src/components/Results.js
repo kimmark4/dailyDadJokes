@@ -30,6 +30,7 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
     }).then((response) => {
       setPhotos(response.data.results);
     }).catch((error) => {
+
       alert(`Something went wrong! Here is a dad joke to sparkle your day: I went to this TV repairman's wedding. The reception was great.`)
     })
   }, [searchTerm]);
@@ -56,6 +57,7 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
       }).then((response) => {
         setRandomJokes(response.data.results)
       }).catch((error) => {
+
         alert(`Something went wrong! Here is a dad joke to sparkle your day: I went to this TV repairman's wedding. The reception was great.`)
       })
     }
