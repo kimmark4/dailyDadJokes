@@ -1,5 +1,4 @@
 @import"typography";
-@import"header";
 @import"setUp";
 @import "results.scss";
 
@@ -42,6 +41,7 @@ form {
   border-radius: 15px;
 }
 
+
 .dropDown {
   background-color: $lemon;
   border: none;
@@ -50,12 +50,14 @@ form {
   width: 60%;
   font-family: $baseFont;
   
+  
 }
 
 .dropDown:hover{
   color: $lemon;
   background-color: $black;
   border: 2px solid $lemon;
+  cursor: pointer;
 }
 
 label {
@@ -81,6 +83,10 @@ input {
   border-radius: 15px;
 }
 
+input:hover{
+  cursor: pointer;
+}
+
 .arrowImage {
   position: relative;
 }
@@ -91,7 +97,7 @@ input {
   font-family: $baseFont;
   font-size: 2rem;
   text-transform: uppercase;
-  top: 870px;
+  top: 890px;
   background-color: transparent;
   z-index: 10;
 }
@@ -100,4 +106,10 @@ input {
   background-color: $black;
   color: $lemon;
   border: 3px solid $lemon;
+  cursor: pointer;
+}
+
+.footerContent {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }

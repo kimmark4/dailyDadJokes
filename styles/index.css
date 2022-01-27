@@ -24,6 +24,16 @@ header h1 {
   margin: 10px auto;
 }
 
+header h2 {
+  font-size: 2rem;
+  font-family: "Chicle", cursive;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 20px auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 p {
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -37,6 +47,19 @@ p {
 }
 
 .go-back {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #a8f0f0;
+}
+
+footer p {
   font-size: 1.5rem;
 }
 
@@ -376,6 +399,7 @@ form {
   color: #f0ffa8;
   background-color: #000000;
   border: 2px solid #f0ffa8;
+  cursor: pointer;
 }
 
 label {
@@ -406,6 +430,10 @@ input {
   border-radius: 15px;
 }
 
+input:hover {
+  cursor: pointer;
+}
+
 .arrowImage {
   position: relative;
 }
@@ -416,7 +444,7 @@ input {
   font-family: "Chicle", cursive;
   font-size: 2rem;
   text-transform: uppercase;
-  top: 870px;
+  top: 890px;
   background-color: transparent;
   z-index: 10;
 }
@@ -425,4 +453,10 @@ input {
   background-color: #000000;
   color: #f0ffa8;
   border: 3px solid #f0ffa8;
+  cursor: pointer;
+}
+
+.footerContent {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
