@@ -2,21 +2,47 @@ $headerFont: 'Monoton', cursive;
 $baseFont: 'Chicle', cursive;
 $blue: #a8f0f0;
 $gold: #f0a848;
+$margarine: #f0d830;
+$lemon: #f0ffa8;
+$pollen: #f0f0a8;
+$burnt: #d35400;
 
 html {
      font-size: 125%;
 }
+body {
+     font-family: $baseFont;
+     
+}
 
-h1 {
+h1, h2, h3, h4, h5, h6, p, a {
+     margin: 0;
+     padding: 0;
+}
+
+header h1 {
+     font-size: 4rem;
      font-family: $headerFont;
      text-transform: uppercase;
      text-align: center;
-     text-shadow: 2px 2px 1px $gold;
+     text-shadow: 4px 4px 2px $gold, 8px 8px 2px $burnt,;
+     font-weight: 400;
+     flex-wrap: wrap;
+     width: 60%;
+     margin: 10px auto;
 }
 
 p {
-     font-family: $baseFont;
      font-weight: 600;
      letter-spacing: 1.5px;
+     font-size: 2rem;
+     margin: 10px auto;
      // text-transform: uppercase;
+}
+.joke {
+     font-size: 1rem;
+     color: black;
+}
+.go-back {
+     font-size: 1.5rem;
 }
