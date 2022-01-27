@@ -75,5 +75,17 @@ input {
   border-radius: 15px;
 }
 
+.arrowImage {
+  position: relative;
+}
 
-
+.enterButton {
+  position: absolute;
+  border: none;
+  font-family: $baseFont;
+  font-size: 2rem;
+  text-transform: uppercase;
+  top: 870px;
+  background-color: transparent;
+  z-index: 10;
+}
