@@ -258,26 +258,13 @@ html {
   box-sizing: border-box;
 }
 
-.tv-container {
-  position: relative;
-  margin: 80px 0;
-  left: 100px;
-}
-
-.tv {
-  z-index: 100;
-  width: 65%;
-  position: relative;
-}
-
 .slideshow {
-  margin: 30px auto;
+  margin: 100px auto;
   overflow: hidden;
   max-width: 500px;
-  z-index: 1;
-  position: absolute;
-  top: 45px;
-  left: 610px;
+  -webkit-box-shadow: 0 0 0 5px #f0a848, 0 0 0 10px #f0d830, 0 0 0 15px #f0ffa8, 0 0 0 20px #a8f0f0, 0 0 0 25px #60d8d8;
+          box-shadow: 0 0 0 5px #f0a848, 0 0 0 10px #f0d830, 0 0 0 15px #f0ffa8, 0 0 0 20px #a8f0f0, 0 0 0 25px #60d8d8;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .slideshow-slider {
@@ -301,13 +288,13 @@ html {
 .joke {
   display: inline;
   white-space: normal;
+  color: white;
+  font-weight: normal;
 }
 
 /* Buttons */
-
 .slideshowDots {
   text-align: center;
-  margin-top: 175px;
   background-color: none;
 }
 
@@ -328,6 +315,12 @@ html {
 .go-back {
   text-decoration: none;
   color: black;
+  padding: 20px 40px;
+  background-color: #f0ffa8;
+  border-radius: 50%;
+}
+.go-back:hover, .go-back:focus {
+  background-color: #a8f0f0;
 }
 
 body {
@@ -389,7 +382,6 @@ label {
           flex-direction: column;
   margin: 10px 0;
   font-family: "Chicle", cursive;
-
 }
 
 input {
@@ -417,39 +409,14 @@ input {
   z-index: 10;
 }
 
-.slideshow {
-  margin: 0 auto;
-  overflow: hidden;
-  max-width: 500px;
+footer {
+  background-color: #16558f;
+  margin-top: 50px;
 }
-
-.slideshowSlider {
-  white-space: nowrap;
-  -webkit-transition: ease 1000ms;
-  transition: ease 1000ms;
-}
-
-.slide {
-  display: inline-block;
-  height: 400px;
-  width: 100%;
-  border-radius: 40px;
-}
-
-/* Buttons */
-.slideshowDots {
-  text-align: center;
-}
-
-.slideshowDot {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin: 15px 7px 0px;
-  background-color: #c4c4c4;
-}
-.slideshowDot .active {
-  background-color: #6a0dad;
+footer p {
+  color: black;
+  font-size: 1rem;
+  padding: 20px 0;
+  margin: 0;
+  font-weight: normal;
 }
