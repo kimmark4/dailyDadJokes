@@ -1,19 +1,23 @@
 import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
 import { useLocation, Link } from "react-router-dom";
+import firebase from "../firebase.js";
+import { getDatabase, ref, onValue, push } from "firebase/database";
 
 
 
-const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
+const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
   const [randomJokes, setRandomJokes] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [userData, setUserData] = useState([]);
-  // const location = useLocation();
-  // const usersJokes = (location.state);
-  const totalJokes = [...randomJokes, ...usersJokes]
-  const [delay, setDelay] = useState(30000)
-  const randomNumber = Math.floor(Math.random() * 50);
+  const location = useLocation();
+  const usersJokes = (location.state);
+  const totalJokes = [...randomJokes, ...usersJokes];
+  const [delay, setDelay] = useState(30000);
+  const [pushFirebase, setPushFirebase] = useState([]);
+
+  const randomNumber = Math.floor(Math.random() * 30);
 
   // calling unsplash API data to get 10 photos. 
   useEffect(() => {
@@ -30,7 +34,6 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
     }).then((response) => {
       setPhotos(response.data.results);
     }).catch((error) => {
-
       alert(`Something went wrong! Here is a dad joke to sparkle your day: I went to this TV repairman's wedding. The reception was great.`)
     })
   }, [searchTerm]);
@@ -57,7 +60,6 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
       }).then((response) => {
         setRandomJokes(response.data.results)
       }).catch((error) => {
-
         alert(`Something went wrong! Here is a dad joke to sparkle your day: I went to this TV repairman's wedding. The reception was great.`)
       })
     }
@@ -77,7 +79,6 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
   // Slideshow, creating the 30sec delay
   // followed tutorial from: https://tinloof.com/blog/how-to-build-an-auto-play-slideshow-with-react
   // const delay = 30000;
-
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
@@ -98,12 +99,23 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
         ),
       delay
     );
-
     return () => {
       resetTimeout();
     };
   }, [index]);
 
+
+  // adding firebase
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const database = getDatabase(firebase);
+    const dbRootAddress = ref(database);
+    const firedata = {
+      userSave: pushFirebase,
+      userSlideshow: userData,
+    }
+    push(dbRootAddress, firedata);
+  };
 
 
   return (
@@ -146,10 +158,12 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
             ></div>
           ))}
         </div>
-        
       </div>
-      
-
+      {/* <form action="submit" onSubmit={handleSubmit}>
+        <label htmlFor="">Save your Slideshow</label>
+        <input type="text" id="userSlideshow" onChange={(e) => setPushFirebase(e.target.value)} value={pushFirebase} />
+        <button>Save Slideshow</button>
+      </form> */}
       <Link to='/' className='go-back'>Go back</Link>
     </section>
 

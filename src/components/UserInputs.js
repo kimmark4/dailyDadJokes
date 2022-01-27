@@ -6,7 +6,7 @@ import arrowPic from "../styles/assets/arrowPicEdited.png";
 
 
 
-const UserInputs = ({ propTerm, propLimit, propSubmit, propJokes }) => {
+const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
     const [userLimitChoice] = useState(10);
     const [userChoice, setUserChoice] = useState("placeholder");
@@ -26,12 +26,11 @@ const UserInputs = ({ propTerm, propLimit, propSubmit, propJokes }) => {
         propTerm(userChoice);
         propLimit(userLimitChoice - filteredJokeData.length);
         propSubmit(true);
-        propJokes(filteredJokeData)
         // using navigate here by the recommendation of Adrian and Joey to route the page to /results while pushing the data from the UserInputs component to the Results component. 
         navigate('/results',
-            // { 
-            //     state: filteredJokeData
-            // }
+            { 
+                state: filteredJokeData
+            }
         )
     }
 
