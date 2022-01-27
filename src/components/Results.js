@@ -31,6 +31,8 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
       }
     }).then((response) => {
       setPhotos(response.data.results);
+    }).catch((error) => {
+      console.log(error)
     })
   }, [searchTerm]);
 
@@ -55,6 +57,8 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
         }
       }).then((response) => {
         setRandomJokes(response.data.results)
+      }).catch((error) => {
+        console.log(error)
       })
     }
   }, [submit])

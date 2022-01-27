@@ -24,6 +24,16 @@ header h1 {
   margin: 10px auto;
 }
 
+header h2 {
+  font-size: 2rem;
+  font-family: "Chicle", cursive;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 20px auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 p {
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -37,6 +47,19 @@ p {
 }
 
 .go-back {
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  color: #a8f0f0;
+}
+
+footer p {
   font-size: 1.5rem;
 }
 
@@ -304,7 +327,6 @@ html {
 }
 
 /* Buttons */
-
 .slideshowDots {
   text-align: center;
   margin-top: 175px;
@@ -373,6 +395,13 @@ form {
   font-family: "Chicle", cursive;
 }
 
+.dropDown:hover {
+  color: #f0ffa8;
+  background-color: #000000;
+  border: 2px solid #f0ffa8;
+  cursor: pointer;
+}
+
 label {
   font-family: "Chicle", cursive;
   margin: 10px 0;
@@ -389,7 +418,6 @@ label {
           flex-direction: column;
   margin: 10px 0;
   font-family: "Chicle", cursive;
-
 }
 
 input {
@@ -402,6 +430,10 @@ input {
   border-radius: 15px;
 }
 
+input:hover {
+  cursor: pointer;
+}
+
 .arrowImage {
   position: relative;
 }
@@ -412,44 +444,19 @@ input {
   font-family: "Chicle", cursive;
   font-size: 2rem;
   text-transform: uppercase;
-  top: 870px;
+  top: 890px;
   background-color: transparent;
   z-index: 10;
 }
 
-.slideshow {
-  margin: 0 auto;
-  overflow: hidden;
-  max-width: 500px;
-}
-
-.slideshowSlider {
-  white-space: nowrap;
-  -webkit-transition: ease 1000ms;
-  transition: ease 1000ms;
-}
-
-.slide {
-  display: inline-block;
-  height: 400px;
-  width: 100%;
-  border-radius: 40px;
-}
-
-/* Buttons */
-.slideshowDots {
-  text-align: center;
-}
-
-.slideshowDot {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
+.enterButton:hover {
+  background-color: #000000;
+  color: #f0ffa8;
+  border: 3px solid #f0ffa8;
   cursor: pointer;
-  margin: 15px 7px 0px;
-  background-color: #c4c4c4;
 }
-.slideshowDot .active {
-  background-color: #6a0dad;
+
+.footerContent {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
