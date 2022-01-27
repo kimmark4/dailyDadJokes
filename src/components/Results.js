@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import retroTV from "../styles/assets/retroTV.png";
 
 
 
@@ -24,7 +25,7 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
       dataResponse: `json`,
       method: `GET`,
       params: {
-        client_id: apiKey,
+        client_id: `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`,
         query: searchTerm,
         per_page: 10,
       }
@@ -67,13 +68,9 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
     })
     setUserData(newArray)
   },[randomJokes])
-  
 
-  console.log(userData);
-
-
-
-  const delay = 30000;
+  // Slideshow, creating the 30sec delay-change back to 30sec
+  const delay = 3000;
 
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
@@ -102,24 +99,38 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
 
   return (
-    <>
-      <div className="slideshow">
-        <div className="slideshowSlider" style={{ transform: `translate3d(${- index * 100}%,0,0)` }}>
-          {
-            userData.map((singleSlide) => {
-              return (
-                <div className='slide' key={singleSlide.id}>
-                  <img src={singleSlide.urls.small} alt={singleSlide.alt_description} />
-                  <p>{singleSlide.jokes.joke}</p>
-                </div>
-              )
-            })
-          }
-          <Link to='/' >Go back</Link>
+    <section>
+      <div className="tv-container">
+        <img  className="tv" src={retroTV} alt="Retro tv." />
+        <div className="slideshow">
+          <div className="slideshow-slider" style={{ transform: `translate3d(${- index * 100}%,0,0)` }}>
+            {
+              userData.map((singleSlide) => {
+                return (
+                  <div className='slide' key={singleSlide.id}>
+                    <img src={singleSlide.urls.small} alt={singleSlide.alt_description} />
+                    <div className="p-container">
+                      <p className='joke'>{singleSlide.jokes.joke}</p>
+                    </div>
+                  </div>
+                )
+              })
+            }
+          </div>
+          <div className="slideshowDots">
+          {userData.map((_, idx) => (
+              <div key={idx} className={`slideshowDot${index === idx ? " active" : ""}`}
+                onClick={() => {
+                  setIndex(idx);
+                }}
+              ></div>
+          ))}  
+          </div>
         </div>
       </div>
-
-    </>
+         
+      <Link to='/' className='go-back'>Go back</Link>
+    </section>
 
   )
 } 

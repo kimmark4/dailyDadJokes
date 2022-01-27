@@ -10,7 +10,10 @@ $burnt: #d35400;
 html {
      font-size: 125%;
 }
-
+body {
+     font-family: $baseFont;
+     
+}
 
 h1, h2, h3, h4, h5, h6, p, a {
      margin: 0;
@@ -30,10 +33,16 @@ header h1 {
 }
 
 p {
-     font-family: $baseFont;
      font-weight: 600;
      letter-spacing: 1.5px;
      font-size: 2rem;
      margin: 10px auto;
      // text-transform: uppercase;
+}
+.joke {
+     font-size: 1rem;
+     color: black;
+}
+.go-back {
+     font-size: 1.5rem;
 }
