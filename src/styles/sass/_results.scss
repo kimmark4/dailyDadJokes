@@ -1,21 +1,10 @@
-.tv-container {
-    position: relative;
-    margin: 80px 0;
-    left: 100px;
-}
-.tv {
-    z-index: 100;
-    width:65%;
-    position: relative;
-}
+
 .slideshow {
-  margin: 30px auto;
+  margin: 100px auto;
   overflow: hidden;
   max-width: 500px;
-  z-index: 1;
-  position: absolute;
-  top: 45px;
-  left: 610px;
+  box-shadow: 0 0 0 5px $gold, 0 0 0 10px $margarine, 0 0 0 15px $lemon, 0 0 0 20px $blue, 0 0 0 25px #60d8d8;
+  background-color: rgba(black, 0.8);
 }
 
 .slideshow-slider {
@@ -36,6 +25,8 @@
 .joke {
     display: inline;
     white-space: normal;
+    color: white;
+    font-weight: normal;
 }
 
 
@@ -43,7 +34,6 @@
 
 .slideshowDots {
   text-align: center;
-  margin-top: 175px;
   background-color: none;
 
 }
@@ -64,7 +54,16 @@
 .slideshowDot.active {
     background-color: #16558F;
 }
+
 .go-back {
     text-decoration: none;
     color: black;
+    padding: 20px 40px;
+    background-color: $lemon;
+    border-radius: 50%;
+
+    &:hover, 
+    &:focus {
+      background-color: $blue;
+    }
 }

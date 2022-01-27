@@ -6,7 +6,7 @@ import arrowPic from "../styles/assets/arrowPicEdited.png";
 
 
 
-const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
+const UserInputs = ({ propTerm, propLimit, propSubmit, propJokes }) => {
 
     const [userLimitChoice] = useState(10);
     const [userChoice, setUserChoice] = useState("placeholder");
@@ -14,31 +14,27 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
     const [jokeNumberTwo, setJokeNumberTwo] = useState("");
     const [jokeNumberThree, setJokeNumberThree] = useState("");
     const navigate = useNavigate();
-    
-    
+
+
     // when the form submits, get the values of each of the user's inputs and set them into useStates.
     const handleSubmit = (event) => {
         event.preventDefault();
-        const jokeData = [{joke: jokeNumberOne}, {joke: jokeNumberTwo}, {joke: jokeNumberThree}];
-        const filteredJokeData = jokeData.filter( (jokeFilter) => {
+        const jokeData = [{ joke: jokeNumberOne }, { joke: jokeNumberTwo }, { joke: jokeNumberThree }];
+        const filteredJokeData = jokeData.filter((jokeFilter) => {
             return jokeFilter.joke !== ""
         })
         propTerm(userChoice);
         propLimit(userLimitChoice - filteredJokeData.length);
         propSubmit(true);
+        propJokes(filteredJokeData)
         // using navigate here by the recommendation of Adrian and Joey to route the page to /results while pushing the data from the UserInputs component to the Results component. 
         navigate('/results',
-        { 
-            state: filteredJokeData
-        })
+            // { 
+            //     state: filteredJokeData
+            // }
+        )
     }
 
-
-    const handleUserChoice = (e) => {
-        setUserChoice(e.target.value);
-    }
-
-    
 
     return (
         <div className='wrapper'>
@@ -50,7 +46,7 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                     <select className="dropDown"
                         id="category"
                         name="category"
-                        onChange={handleUserChoice}
+                        onChange={(e) => setUserChoice(e.target.value)}
                         value={userChoice}
                     >
                         <option value="placeholder" disabled>Choose Your Category</option>

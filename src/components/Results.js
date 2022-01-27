@@ -1,24 +1,20 @@
 import { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
 import { useLocation, Link } from "react-router-dom";
-import retroTV from "../styles/assets/retroTV.png";
 
 
 
-const Results = ({ submit, userLimitChoice, searchTerm }) => {
+const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
 
   const [randomJokes, setRandomJokes] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [userData, setUserData] = useState([]);
-  const location = useLocation();
-  const usersJokes = (location.state);
+  // const location = useLocation();
+  // const usersJokes = (location.state);
   const totalJokes = [...randomJokes, ...usersJokes]
-
-
+  const randomNumber = Math.floor(Math.random() * 50);
 
   // calling unsplash API data to get 10 photos. 
-  const apiKey = `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`
-
   useEffect(() => {
     axios({
       url: `https://api.unsplash.com/search/photos`,
@@ -27,19 +23,21 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
       params: {
         client_id: `34_FRr4gH3efbjKeNMjRmPjTM8phiy64ND24X1GElr8`,
         query: searchTerm,
+        // page: randomNumber,
         per_page: 10,
       }
     }).then((response) => {
       setPhotos(response.data.results);
     }).catch((error) => {
-      alert(`Something went wrong, here is a dad joke to sparkle your day: I went to this TV repairman's wedding        The reception was great.`)
+
+      alert(`Something went wrong! Here is a dad joke to sparkle your day: I went to this TV repairman's wedding. The reception was great.`)
     })
   }, [searchTerm]);
 
 
   // create an icanhazdadjokes API call to get 10 jokes
   // randomNumber variable will allow us to get 10 random jokes from the icanhazdadjokes API
-  const randomNumber = Math.floor(Math.random() * 64);
+  
 
   useEffect(() => {
     if (submit) {
@@ -58,7 +56,8 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
       }).then((response) => {
         setRandomJokes(response.data.results)
       }).catch((error) => {
-        alert(`Something went wrong, here is a dad joke to sparkle your day: I went to this TV repairman's wedding        The reception was great.`)
+
+        alert(`Something went wrong! Here is a dad joke to sparkle your day: I went to this TV repairman's wedding. The reception was great.`)
       })
     }
   }, [submit])
@@ -66,20 +65,23 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
   // creating a new array with the data of the photos and the jokes combined into each objects
   // create this array within a useEffect so that it will render after all the jokes are loaded
-  useEffect(()=> {
+  useEffect(() => {
     const newArray = photos.map((singularPhoto, index) => {
       return { ...singularPhoto, jokes: totalJokes[index] }
     })
     setUserData(newArray)
-  },[randomJokes])
+  }, [randomJokes])
 
-  // Slideshow, creating the 30sec delay-change back to 30sec
-  const delay = 3000;
+
+  // Slideshow, creating the 30sec delay
+  // followed tutorial from: https://tinloof.com/blog/how-to-build-an-auto-play-slideshow-with-react
+  // change to 30000
+  const delay = 5000;
 
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
-  function resetTimeout() {
+  const resetTimeout = () => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
@@ -90,7 +92,9 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
-          prevIndex === photos.length - 1 ? 0 : prevIndex + 1
+          prevIndex === photos.length - 1
+            ? alert("Thank you for Coming by. Hope you have a Great Day! 😊😊")
+            : prevIndex + 1
         ),
       delay
     );
@@ -103,40 +107,39 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
 
   return (
-    <section>
-      <div className="tv-container">
-        <img  className="tv" src={retroTV} alt="Retro tv." />
-        <div className="slideshow">
-          <div className="slideshow-slider" style={{ transform: `translate3d(${- index * 100}%,0,0)` }}>
-            {
-              userData.map((singleSlide) => {
-                return (
-                  <div className='slide' key={singleSlide.id}>
-                    <img src={singleSlide.urls.small} alt={singleSlide.alt_description} />
-                    <div className="p-container">
-                      <p className='joke'>{singleSlide.jokes.joke}</p>
-                    </div>
+    <section className='wrapper'>
+      <div className="slideshow">
+        <div className="slideshow-slider" style={{ transform: `translate3d(${- index * 100}%,0,0)` }}>
+          {
+            userData.map((singleSlide) => {
+              return (
+                <div className='slide' key={singleSlide.id}>
+                  <img src={singleSlide.urls.small} alt={singleSlide.alt_description} />
+                  <div className="p-container">
+                    <p className='joke'>{singleSlide.jokes.joke}</p>
                   </div>
-                )
-              })
-            }
-          </div>
-          <div className="slideshowDots">
+                </div>
+              )
+            })
+          }
+        </div>
+
+
+        <div className="slideshowDots">
           {userData.map((_, idx) => (
-              <div key={idx} className={`slideshowDot${index === idx ? " active" : ""}`}
-                onClick={() => {
-                  setIndex(idx);
-                }}
-              ></div>
-          ))}  
-          </div>
+            <div key={idx} className={`slideshowDot${index === idx ? " active" : ""}`}
+              onClick={() => {
+                setIndex(idx);
+              }}
+            ></div>
+          ))}
         </div>
       </div>
-         
+
       <Link to='/' className='go-back'>Go back</Link>
     </section>
 
   )
-} 
+}
 
 export default Results;
