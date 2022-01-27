@@ -84,8 +84,6 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                     </div>
                     <img src={arrowPic} alt="Click to proceed!" className='arrowImage'></img>
                     <button type='submit' className='enterButton'>Enter</button>
-
-
                 </form>
                 {/* <button >userinputjs button</button> */}
             </div>
