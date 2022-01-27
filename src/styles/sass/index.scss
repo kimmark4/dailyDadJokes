@@ -1,115 +1,23 @@
-@import"typography";
-@import"setUp";
-@import "results.scss";
-
+@import "./partials/typography";
+@import "./partials/setUp";
+@import "./partials/userInputs";
+@import "./partials/results";
+@import "./partials/footer";
+@import "./partials/mediaQueries";
 
 body {
-    text-align: center;
-    background:linear-gradient(180deg, rgba(168, 240, 240, 1) 0% 25%, rgba(240, 240, 168, 1) 25% 50%, rgba(240, 216, 48, 1) 50% 75%, rgba(240, 168, 72, 1) 75% 100%);
-
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(168, 240, 240, 1) 0% 25%,
+    rgba(240, 240, 168, 1) 25% 50%,
+    rgba(240, 216, 48, 1) 50% 75%,
+    rgba(240, 168, 72, 1) 75% 100%
+  );
 }
 
 .wrapper {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
-}
-
-// .buttonTextContainer {
-//      display: flex;
-//      justify-content: center;
-// }
-
-// .buttonWrapper {
-//      display: flex;
-//      flex-direction: column;
-//      width: 30%;
-//      text-align: center;
-//      align-items: center;
-// }
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  padding: 10px 2px;
-  margin: 0 auto;
-  background-color: $gold;
-  border: 2px solid $burnt;
-  border-radius: 15px;
-}
-
-
-.dropDown {
-  background-color: $lemon;
-  border: none;
-  padding: .5em 1em;
-  border-radius: 15px;
-  width: 60%;
-  font-family: $baseFont;
-  
-  
-}
-
-.dropDown:hover{
-  color: $lemon;
-  background-color: $black;
-  border: 2px solid $lemon;
-  cursor: pointer;
-}
-
-label {
-  font-family: $baseFont;
-  margin: 10px 0;
-  font-size: 1.5rem;
-}
-
-.stackBox {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-  font-family: $baseFont;
-}
-
-input {
-  text-align: center;
-  margin: 10px 0;
-  background-color: $lemon;
-  font-family: $baseFont;
-  border: 2px solid $lemon;
-  padding: .5em 1em;
-  border-radius: 15px;
-}
-
-input:hover{
-  cursor: pointer;
-}
-
-.arrowImage {
-  position: relative;
-}
-
-.enterButton {
-  position: absolute;
-  border: none;
-  font-family: $baseFont;
-  font-size: 2rem;
-  text-transform: uppercase;
-  top: 890px;
-  background-color: transparent;
-  z-index: 10;
-}
-
-.enterButton:hover {
-  background-color: $black;
-  color: $lemon;
-  border: 3px solid $lemon;
-  cursor: pointer;
-}
-
-.footerContent {
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
