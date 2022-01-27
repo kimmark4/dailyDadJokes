@@ -304,7 +304,6 @@ html {
 }
 
 /* Buttons */
-
 .slideshowDots {
   text-align: center;
   margin-top: 175px;
@@ -373,6 +372,12 @@ form {
   font-family: "Chicle", cursive;
 }
 
+.dropDown:hover {
+  color: #f0ffa8;
+  background-color: #000000;
+  border: 2px solid #f0ffa8;
+}
+
 label {
   font-family: "Chicle", cursive;
   margin: 10px 0;
@@ -389,7 +394,6 @@ label {
           flex-direction: column;
   margin: 10px 0;
   font-family: "Chicle", cursive;
-
 }
 
 input {
@@ -417,39 +421,8 @@ input {
   z-index: 10;
 }
 
-.slideshow {
-  margin: 0 auto;
-  overflow: hidden;
-  max-width: 500px;
-}
-
-.slideshowSlider {
-  white-space: nowrap;
-  -webkit-transition: ease 1000ms;
-  transition: ease 1000ms;
-}
-
-.slide {
-  display: inline-block;
-  height: 400px;
-  width: 100%;
-  border-radius: 40px;
-}
-
-/* Buttons */
-.slideshowDots {
-  text-align: center;
-}
-
-.slideshowDot {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin: 15px 7px 0px;
-  background-color: #c4c4c4;
-}
-.slideshowDot .active {
-  background-color: #6a0dad;
+.enterButton:hover {
+  background-color: #000000;
+  color: #f0ffa8;
+  border: 3px solid #f0ffa8;
 }

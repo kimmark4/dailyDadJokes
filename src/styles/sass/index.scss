@@ -52,6 +52,12 @@ form {
   
 }
 
+.dropDown:hover{
+  color: $lemon;
+  background-color: $black;
+  border: 2px solid $lemon;
+}
+
 label {
   font-family: $baseFont;
   margin: 10px 0;
@@ -88,4 +94,10 @@ input {
   top: 870px;
   background-color: transparent;
   z-index: 10;
+}
+
+.enterButton:hover {
+  background-color: $black;
+  color: $lemon;
+  border: 3px solid $lemon;
 }
