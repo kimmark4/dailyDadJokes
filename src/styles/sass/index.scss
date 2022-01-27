@@ -3,6 +3,7 @@
 @import"setUp";
 @import "results.scss";
 
+
 body {
     text-align: center;
     background:linear-gradient(180deg, rgba(168, 240, 240, 1) 0% 25%, rgba(240, 240, 168, 1) 25% 50%, rgba(240, 216, 48, 1) 50% 75%, rgba(240, 168, 72, 1) 75% 100%);
@@ -52,6 +53,7 @@ form {
 }
 
 label {
+  font-family: $baseFont;
   margin: 10px 0;
   font-size: 1.5rem;
 }
@@ -60,6 +62,7 @@ label {
   display: flex;
   flex-direction: column;
   margin: 10px 0;
+  font-family: $baseFont;
 }
 
 input {
@@ -72,9 +75,5 @@ input {
   border-radius: 15px;
 }
 
-button {
-  
-  
-}
 
 

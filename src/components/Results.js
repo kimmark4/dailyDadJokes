@@ -68,7 +68,7 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
     })
     setUserData(newArray)
   },[randomJokes])
-  
+
   // Slideshow, creating the 30sec delay-change back to 30sec
   const delay = 3000;
 

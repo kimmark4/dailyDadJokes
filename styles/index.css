@@ -304,6 +304,7 @@ html {
 }
 
 /* Buttons */
+
 .slideshowDots {
   text-align: center;
   margin-top: 175px;
@@ -373,6 +374,7 @@ form {
 }
 
 label {
+  font-family: "Chicle", cursive;
   margin: 10px 0;
   font-size: 1.5rem;
 }
@@ -386,6 +388,8 @@ label {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 10px 0;
+  font-family: "Chicle", cursive;
+
 }
 
 input {
@@ -396,4 +400,41 @@ input {
   border: 2px solid #f0ffa8;
   padding: 0.5em 1em;
   border-radius: 15px;
+}
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 500px;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  -webkit-transition: ease 1000ms;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 400px;
+  width: 100%;
+  border-radius: 40px;
+}
+
+/* Buttons */
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  background-color: #c4c4c4;
+}
+.slideshowDot .active {
+  background-color: #6a0dad;
 }
