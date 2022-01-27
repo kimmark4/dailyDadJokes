@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import arrowPic from "../styles/assets/arrowPic.png";
 
@@ -8,7 +8,7 @@ import arrowPic from "../styles/assets/arrowPic.png";
 
 const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
 
-    const [userLimitChoice, setuserLimitChoice] = useState(10);
+    const [userLimitChoice] = useState(10);
     const [userChoice, setUserChoice] = useState("placeholder");
     const [jokeNumberOne, setJokeNumberOne] = useState("");
     const [jokeNumberTwo, setJokeNumberTwo] = useState("");
@@ -82,12 +82,11 @@ const UserInputs = ({ propTerm, propLimit, propSubmit }) => {
                             />
                         </div>
                     </div>
+
                     <img src={arrowPic} alt="Click to proceed!" className='arrowImage'></img>
                     <button type='submit' className='enterButton'>Enter</button>
 
-
                 </form>
-                {/* <button >userinputjs button</button> */}
             </div>
         </div>
     )
