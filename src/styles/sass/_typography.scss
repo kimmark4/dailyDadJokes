@@ -6,6 +6,8 @@ $margarine: #f0d830;
 $lemon: #f0ffa8;
 $pollen: #f0f0a8;
 $burnt: #d35400;
+$black: #000000;
+
 
 html {
      font-size: 125%;
@@ -32,6 +34,15 @@ header h1 {
      margin: 10px auto;
 }
 
+header h2{
+     font-size: 2rem;
+     font-family: $baseFont;
+     flex-wrap: wrap;
+     margin: 20px auto;
+     text-align: center;
+     text-transform: uppercase;
+}
+
 p {
      font-weight: 600;
      letter-spacing: 1.5px;
@@ -44,5 +55,18 @@ p {
      color: black;
 }
 .go-back {
+     font-size: 1.5rem;
+}
+
+a {
+     text-decoration: none;
+     color: $black;
+}
+
+a:hover {
+     color: $blue;
+}
+
+footer p{
      font-size: 1.5rem;
 }
