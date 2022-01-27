@@ -12,6 +12,7 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
   // const location = useLocation();
   // const usersJokes = (location.state);
   const totalJokes = [...randomJokes, ...usersJokes]
+  const [delay, setDelay] = useState(30000)
   const randomNumber = Math.floor(Math.random() * 50);
 
   // calling unsplash API data to get 10 photos. 
@@ -37,7 +38,7 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
 
   // create an icanhazdadjokes API call to get 10 jokes
   // randomNumber variable will allow us to get 10 random jokes from the icanhazdadjokes API
-  
+
 
   useEffect(() => {
     if (submit) {
@@ -75,8 +76,7 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
 
   // Slideshow, creating the 30sec delay
   // followed tutorial from: https://tinloof.com/blog/how-to-build-an-auto-play-slideshow-with-react
-  // change to 30000
-  const delay = 5000;
+  // const delay = 30000;
 
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
@@ -108,6 +108,20 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
 
   return (
     <section className='wrapper'>
+      <form action="">
+          <select className="dropDown"
+            id="time"
+            name="time"
+            onChange={(e) => setDelay(e.target.value)}
+            value={delay}
+          >
+            <option value="30000">30 seconds</option>
+            <option value="25000">25 seconds</option>
+            <option value="20000">20 seconds</option>
+            <option value="15000">15 seconds</option>
+            <option value="10000">10 seconds</option>
+          </select>
+        </form>
       <div className="slideshow">
         <div className="slideshow-slider" style={{ transform: `translate3d(${- index * 100}%,0,0)` }}>
           {
@@ -123,8 +137,6 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
             })
           }
         </div>
-
-
         <div className="slideshowDots">
           {userData.map((_, idx) => (
             <div key={idx} className={`slideshowDot${index === idx ? " active" : ""}`}
@@ -134,7 +146,9 @@ const Results = ({ submit, userLimitChoice, searchTerm, usersJokes }) => {
             ></div>
           ))}
         </div>
+        
       </div>
+      
 
       <Link to='/' className='go-back'>Go back</Link>
     </section>

@@ -281,83 +281,6 @@ html {
   box-sizing: border-box;
 }
 
-.slideshow {
-  margin: 100px auto;
-  overflow: hidden;
-  max-width: 500px;
-  -webkit-box-shadow: 0 0 0 5px #f0a848, 0 0 0 10px #f0d830, 0 0 0 15px #f0ffa8, 0 0 0 20px #a8f0f0, 0 0 0 25px #60d8d8;
-          box-shadow: 0 0 0 5px #f0a848, 0 0 0 10px #f0d830, 0 0 0 15px #f0ffa8, 0 0 0 20px #a8f0f0, 0 0 0 25px #60d8d8;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.slideshow-slider {
-  white-space: nowrap;
-  -webkit-transition: ease 1000ms;
-  transition: ease 1000ms;
-}
-
-.slide {
-  display: inline-block;
-  height: 400px;
-  width: 100%;
-  border-radius: 40px;
-}
-
-.slide img {
-  height: 400px;
-  width: 350px;
-}
-
-.joke {
-  display: inline;
-  white-space: normal;
-  color: white;
-  font-weight: normal;
-}
-
-/* Buttons */
-.slideshowDots {
-  text-align: center;
-  background-color: none;
-}
-
-.slideshowDot {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin: 15px 7px 0px;
-  background-color: #c4c4c4;
-}
-
-.slideshowDot.active {
-  background-color: #16558F;
-}
-
-.go-back {
-  text-decoration: none;
-  color: black;
-  padding: 20px 40px;
-  background-color: #f0ffa8;
-  border-radius: 50%;
-}
-.go-back:hover, .go-back:focus {
-  background-color: #a8f0f0;
-}
-
-body {
-  text-align: center;
-  background: -webkit-gradient(linear, left top, left bottom, from(#a8f0f0), color-stop(25%, #f0f0a8), color-stop(50%, #f0d830), color-stop(75%, #f0a848));
-  background: linear-gradient(180deg, #a8f0f0 0% 25%, #f0f0a8 25% 50%, #f0d830 50% 75%, #f0a848 75% 100%);
-}
-
-.wrapper {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
-}
-
 form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -387,6 +310,7 @@ form {
   border-radius: 15px;
   width: 60%;
   font-family: "Chicle", cursive;
+  border: 2px solid #f0ffa8;
 }
 
 .dropDown:hover {
@@ -450,7 +374,139 @@ input:hover {
   cursor: pointer;
 }
 
+.slideshow {
+  margin: 100px auto;
+  overflow: hidden;
+  max-width: 500px;
+  -webkit-box-shadow: 0 0 0 5px #f0a848, 0 0 0 10px #f0d830, 0 0 0 15px #f0ffa8, 0 0 0 20px #a8f0f0, 0 0 0 25px #60d8d8;
+          box-shadow: 0 0 0 5px #f0a848, 0 0 0 10px #f0d830, 0 0 0 15px #f0ffa8, 0 0 0 20px #a8f0f0, 0 0 0 25px #60d8d8;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slideshow-slider {
+  white-space: nowrap;
+  -webkit-transition: ease 1000ms;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 400px;
+  width: 100%;
+  border-radius: 40px;
+}
+
+.slide img {
+  height: 400px;
+  width: 350px;
+}
+
+.joke {
+  display: inline;
+  white-space: normal;
+  color: white;
+  font-weight: normal;
+}
+
+/* Buttons */
+.slideshowDots {
+  text-align: center;
+  background-color: none;
+  margin-bottom: 20px;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  background-color: #c4c4c4;
+}
+
+.slideshowDot.active {
+  background-color: #16558F;
+}
+
+.go-back {
+  text-decoration: none;
+  color: black;
+  padding: 20px 40px;
+  background-color: #f0ffa8;
+  border-radius: 50%;
+}
+.go-back:hover, .go-back:focus {
+  background-color: #a8f0f0;
+}
+
 .footerContent {
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 640px) {
+  .slideshow {
+    max-width: 400px;
+  }
+
+  .slide img {
+    height: 300px;
+    width: 350px;
+  }
+}
+@media (max-width: 500px) {
+  .slideshow {
+    max-width: 350px;
+    margin: 70px auto;
+  }
+
+  .slide img {
+    height: 350px;
+    width: 300px;
+  }
+
+  .joke {
+    font-size: 0.7rem;
+  }
+
+  .slideshowDot {
+    height: 15px;
+    width: 15px;
+  }
+
+  .go-back {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 430px) {
+  .slideshow {
+    max-width: 300px;
+  }
+
+  .slide img {
+    height: 300px;
+    width: 250px;
+  }
+
+  .joke {
+    font-size: 0.7rem;
+  }
+
+  .slideshowDot {
+    height: 15px;
+    width: 15px;
+  }
+}
+body {
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#a8f0f0), color-stop(25%, #f0f0a8), color-stop(50%, #f0d830), color-stop(75%, #f0a848));
+  background: linear-gradient(180deg, #a8f0f0 0% 25%, #f0f0a8 25% 50%, #f0d830 50% 75%, #f0a848 75% 100%);
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
 }
