@@ -446,6 +446,20 @@ input:hover {
   margin-bottom: 40px;
 }
 
+@media (max-width: 930px) {
+  .dropDown {
+    width: 100%;
+  }
+
+  .enterButton {
+    top: 930px;
+  }
+}
+@media (maxwidth: 920px) {
+  .enterButton {
+    top: 850px;
+  }
+}
 @media (max-width: 640px) {
   .slideshow {
     max-width: 400px;
