@@ -80,7 +80,6 @@ const Results = ({ submit, userLimitChoice, searchTerm }) => {
 
   // Slideshow, creating the 30sec delay
   // followed tutorial from: https://tinloof.com/blog/how-to-build-an-auto-play-slideshow-with-react
-  // const delay = 30000;
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
